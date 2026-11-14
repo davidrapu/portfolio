@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --color-page: #0a0c0d; /* page background */
+  --color-surface: #101415; /* cards */
+  --color-surface-sunken: #0d1112; /* inside project previews */
+  --color-ticker: #000000; /* skills ticker band */
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-strong: rgba(255, 255, 255, 0.14);
+  --color-ink: #e8eceb; /* headings, primary text */
+  --color-ink-soft: #c9d1cf; /* secondary emphasis */
+  --color-muted: #a9b3b1; /* body copy */
+  --color-faint: #7e8986; /* dates, meta */
+  --color-dim: #5e6866; /* resting project names, arrows */
+  --color-subtle: #8a9592; /* hero headline second line */
+  --color-accent: #2dd4bf;
+  --color-accent-bright: #5eead4;
+  --color-accent-glow: rgba(45, 212, 191, 0.18);
+  --color-offset: #134e48; /* solid offset shadows */
+  --color-offset-hover: #1b6b62;
+
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-card: 22px;
+  --radius-button: 14px;
+  --container-page: 1120px;
+  --ease-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --shadow-frame: 10px 10px 0 0 var(--color-offset);
+  --shadow-frame-hover: 18px 18px 0 0 var(--color-offset-hover);
+  --shadow-frame-flipped: -10px 10px 0 0 var(--color-offset);
+  --shadow-frame-flipped-hover: -18px 18px 0 0 var(--color-offset-hover);
+  --shadow-button: 3px 3px 0 0 var(--color-offset);
+  --shadow-button-hover: 5px 5px 0 0 var(--color-offset-hover);
+  --shadow-preview:
+    0 30px 60px rgba(0, 0, 0, 0.6), 8px 8px 0 0 var(--color-offset);
+
+  --animate-marquee: marquee 40s linear infinite;
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+/* Page-wide defaults (Tailwind's reset already handles margins, box-sizing and list styles). */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: clip;
+    line-height: normal;
+  }
+  body {
+    background: var(--color-page);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  a {
+    color: var(--color-ink);
+  }
+  a:hover {
+    color: var(--color-accent-bright);
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+  sub {
+    font-size: smaller;
+    line-height: normal;
+    vertical-align: sub;
+    bottom: auto;
+  }
+}
