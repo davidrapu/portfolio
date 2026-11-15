@@ -64,3 +64,25 @@ export const PlayIcon = () => (
     <path d="M8 5.5v13l10-6.5z" />
   </Icon>
 );
+
+export const CopyIcon = () => (
+  <Icon size={16}>
+    <rect x="9" y="9" width="12" height="12" rx="2" />
+    <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" />
+  </Icon>
+);
+
+export const CheckIcon = () => (
+  <Icon size={16}>
+    <path d="M5 12.5l4.5 4.5L19 7.5" />
+  </Icon>
+);
+
+// shrink-0 wrapper: keeps the star round when the label next to it wraps
+export const StarIcon = () => (
+  <span className="inline-flex shrink-0">
+    <Icon size={14}>
+      <path d="M12 2l3 6.5 7 .9-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.9z" />
+    </Icon>
+  </span>
+);
