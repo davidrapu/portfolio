@@ -58,7 +58,7 @@ export default function Hero() {
           <IconLink href="mailto:Daverapu47@yahoo.com" label="Email">
             <MailIcon />
           </IconLink>
-          <IconTextLink href="#resume">
+          <IconTextLink href="/DAVIDRAPU.pdf" newTab>
             RÉSUMÉ <DownloadIcon />
           </IconTextLink>
         </div>

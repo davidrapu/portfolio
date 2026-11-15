@@ -24,9 +24,11 @@ export function IconLink({
 
 export function IconTextLink({
   href,
+  newTab = false,
   children,
 }: {
   href: string;
+  newTab?: boolean; // open in a new tab (e.g. the CV PDF); off by default
   children: ReactNode;
 }) {
   return (
@@ -34,6 +36,7 @@ export function IconTextLink({
       href={href}
       className={`${base} px-4.5 font-mono text-[13px] tracking-[.08em]`}
       {...externalLinkProps(href)}
+      {...(newTab && { target: "_blank", rel: "noopener noreferrer" })}
     >
       {children}
     </a>
