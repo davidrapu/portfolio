@@ -1,4 +1,3 @@
-// src/components/BrandIcon.tsx
 import type { SimpleIcon } from "simple-icons";
 
 export function BrandIcon({
