@@ -1,47 +1,36 @@
+import { useScrolled } from "../hooks/useScrolled";
+import { pressable } from "../lib/styles";
+import SectionNav from "./SectionNav";
+
+// Sticky, so the section indicator stays visible while scrolling. It's transparent at the top
+// of the page (the hero glow shows through) and gets a blurred background once you scroll.
 export default function Header() {
+  const scrolled = useScrolled();
+
   return (
-    <header className="mx-auto max-w-page px-6 relative flex items-center justify-between gap-4 py-7">
-      <a
-        className="font-mono text-[14px] font-medium tracking-[.04em]"
-        href="#top"
-      >
-        DAVID<span className="text-accent">.dev</span>
-      </a>
-      <nav
-        className="flex gap-1 rounded-full border border-white/10 bg-white/3 p-1 max-[760px]:hidden"
-        aria-label="Sections"
-      >
+    <header
+      className={`sticky top-0 z-40 border-b transition-[background-color,border-color] duration-300 ${
+        scrolled
+          ? "border-white/6 bg-page/80 backdrop-blur-md"
+          : "border-transparent"
+      }`}
+    >
+      <div className="mx-auto flex max-w-page flex-wrap items-center justify-between gap-x-4 gap-y-3 px-6 py-5">
         <a
-          className="rounded-full px-4 py-2.5 text-[14px] text-muted hover:bg-white/5 hover:text-ink"
-          href="#about"
+          className="font-mono text-[14px] font-medium tracking-[.04em] transition-colors duration-150"
+          href="#top"
         >
-          About
+          DAVID<span className="text-accent">.dev</span>
         </a>
+        {/* On phones the nav drops to its own full-width row under the logo */}
+        <SectionNav className="max-[760px]:order-last max-[760px]:w-full" />
         <a
-          className="rounded-full px-4 py-2.5 text-[14px] text-muted hover:bg-white/5 hover:text-ink"
-          href="#experience"
-        >
-          Experience
-        </a>
-        <a
-          className="rounded-full px-4 py-2.5 text-[14px] text-muted hover:bg-white/5 hover:text-ink"
-          href="#projects"
-        >
-          Projects
-        </a>
-        <a
-          className="rounded-full px-4 py-2.5 text-[14px] text-muted hover:bg-white/5 hover:text-ink"
+          className={`rounded-full bg-ink px-5 py-3 text-[14px] font-semibold text-page hover:bg-white hover:text-page ${pressable}`}
           href="#contact"
         >
-          Contact
+          Get in touch
         </a>
-      </nav>
-      <a
-        className="rounded-full bg-ink px-5 py-3 text-[14px] font-semibold text-page hover:bg-white hover:text-page"
-        href="#contact"
-      >
-        Get in touch
-      </a>
+      </div>
     </header>
   );
 }
