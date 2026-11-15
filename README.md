@@ -1,4 +1,4 @@
-# DAVID.dev — Portfolio
+# DAVIDRAPU.tech — Portfolio
 
 My personal portfolio: a single-page site introducing who I am, what I've worked on and how to reach me.
 

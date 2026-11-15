@@ -20,7 +20,7 @@ export default function Header() {
           className="font-mono text-[14px] font-medium tracking-[.04em] transition-colors duration-150"
           href="#top"
         >
-          DAVID<span className="text-accent">.dev</span>
+          DAVIDRAPU<span className="text-accent">.tech</span>
         </a>
         {/* On phones the nav drops to its own full-width row under the logo */}
         <SectionNav className="max-[760px]:order-last max-[760px]:w-full" />
