@@ -183,8 +183,8 @@ function NetworkVisual() {
       <div className="flex items-center justify-between gap-[1.5cqw]">
         <div className={layer}>
           <div className="relative size-[15cqw]">
-            <i className="absolute inset-0 translate-x-[1.6cqw] -translate-y-[1.6cqw] rounded-[1.2cqw] bg-[#1D4A44]" />
-            <i className="absolute inset-0 translate-x-[.8cqw] -translate-y-[.8cqw] rounded-[1.2cqw] bg-[#2A6B62]" />
+            <i className="absolute inset-0 translate-x-[1.6cqw] translate-y-[-1.6cqw] rounded-[1.2cqw] bg-[#1D4A44]" />
+            <i className="absolute inset-0 translate-x-[.8cqw] translate-y-[-0.8cqw] rounded-[1.2cqw] bg-[#2A6B62]" />
             <i className="absolute inset-0 rounded-[1.2cqw] bg-accent" />
           </div>
           <small className={layerLabel}>32×32×3</small>
