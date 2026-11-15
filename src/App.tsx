@@ -3,6 +3,9 @@ import Hero from "./layouts/Hero";
 import SkillsTicker from "./layouts/SkillsTicker/SkillsTicker";
 import About from "./layouts/About";
 import Experience from "./layouts/Experience";
+import Projects from "./layouts/Projects/Projects";
+import Contact from "./layouts/Contact";
+import Footer from "./layouts/Footer";
 
 export default function App() {
   return (
@@ -17,7 +20,10 @@ export default function App() {
         <SkillsTicker />
         <About />
         <Experience />
+        <Projects />
+        <Contact />
       </main>
+      <Footer />
     </div>
   );
 }
