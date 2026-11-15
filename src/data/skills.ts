@@ -2,7 +2,6 @@ import {
   siPython,
   siTypescript,
   siJavascript,
-  siOpenjdk,
   siCplusplus,
   siReact,
   siTailwindcss,
@@ -29,11 +28,11 @@ import {
   siRailway,
   siJira,
 } from "simple-icons";
-import type { SimpleIcon } from "simple-icons";
+import { javaIcon, type BrandMark } from "./brandIcons";
 
 export type Skill = {
   label: string; // text shown in the ticker
-  icon: SimpleIcon; // icon.path is the SVG path, icon.hex the brand colour
+  icon: BrandMark; // a Simple Icons icon, or a custom one from brandIcons.ts
 };
 
 export const skills: Skill[] = [
@@ -41,7 +40,7 @@ export const skills: Skill[] = [
   { label: "Python", icon: siPython },
   { label: "TypeScript", icon: siTypescript },
   { label: "JavaScript", icon: siJavascript },
-  { label: "Java", icon: siOpenjdk },
+  { label: "Java", icon: javaIcon },
   { label: "C++", icon: siCplusplus },
   // Frontend
   { label: "React", icon: siReact },
