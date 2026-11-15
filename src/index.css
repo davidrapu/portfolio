@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap");
-
+/* Fonts are linked in index.html so they start downloading before this file is parsed. */
 @import "tailwindcss";
 
 @theme {
@@ -29,6 +28,10 @@
   --radius-button: 14px;
   --container-page: 1120px;
   --ease-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-gentle: cubic-bezier(0.33, 1, 0.68, 1); /* slower, even ease-out for scroll reveals */
+  /* Strong curves (replace Tailwind's weak defaults, so `ease-out` / `ease-in-out` use these) */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1); /* things entering, press feedback */
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); /* things moving on screen (nav indicator) */
 
   --shadow-frame: 10px 10px 0 0 var(--color-offset);
   --shadow-frame-hover: 18px 18px 0 0 var(--color-offset-hover);
@@ -48,20 +51,64 @@
       transform: translateX(-50%);
     }
   }
+
+  /* Hero entrance. Each element sets its own distance with --rise (0 = fade only),
+     plus duration and delay in the animate-[…] utility. */
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(var(--rise, 12px));
+    }
+  }
 }
 
 /* Page-wide defaults (Tailwind's reset already handles margins, box-sizing and list styles). */
 @layer base {
   html {
-    scroll-behavior: smooth;
     overflow-x: clip;
     line-height: normal;
+    color-scheme: dark; /* dark scrollbars and form controls */
+    -webkit-tap-highlight-color: transparent; /* no grey flash on tap; controls have :active feedback instead */
+  }
+  /* Smooth anchor jumps only for people who haven't asked for less motion */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  /* Anchored sections stop below the sticky header instead of under it */
+  main[id],
+  section[id] {
+    scroll-margin-top: 96px;
+  }
+  @media (max-width: 760px) {
+    main[id],
+    section[id] {
+      scroll-margin-top: 150px; 
+    }
+  }
+
+  a,
+  button {
+    touch-action: manipulation;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
   }
   body {
     background: var(--color-page);
     color: var(--color-ink);
     font-family: var(--font-sans);
-    overflow-x: hidden;
+
     -webkit-font-smoothing: antialiased;
   }
   a {
